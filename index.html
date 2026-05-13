@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UZ RUST X2</title>
+
+<title>UZRAST</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial;
 }
 
 body{
-font-family:Arial;
-background:#000;
+background:#0b0b0b;
 color:white;
-overflow:hidden;
+overflow-x:hidden;
 }
 
 .bg{
@@ -28,85 +30,394 @@ height:100%;
 background:url('https://images6.alphacoders.com/909/909641.jpg');
 background-size:cover;
 background-position:center;
-filter:brightness(0.3);
+filter:brightness(0.25);
+z-index:-2;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
 z-index:-1;
 }
 
-.center{
-height:100vh;
+header{
+width:100%;
+padding:25px 80px;
 display:flex;
-flex-direction:column;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-text-align:center;
-padding:20px;
+border-bottom:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(6px);
 }
 
-h1{
-font-size:80px;
-margin-bottom:20px;
+.logo{
+font-size:42px;
 font-weight:bold;
+color:#ff4d2d;
 }
 
-p{
-font-size:32px;
-margin-bottom:30px;
-}
-
-.btn{
-display:inline-block;
-padding:18px 50px;
-background:#00b140;
+nav a{
 color:white;
-font-size:30px;
-font-weight:bold;
 text-decoration:none;
-border-radius:14px;
+margin:0 15px;
+font-size:18px;
 transition:0.3s;
 }
 
-.btn:hover{
-background:#00d84f;
-transform:scale(1.05);
+nav a:hover{
+color:#ff4d2d;
 }
 
-.info{
-margin-top:30px;
-font-size:26px;
-opacity:0.9;
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:80px;
+min-height:90vh;
+gap:50px;
+}
+
+.left{
+max-width:600px;
+}
+
+.left h1{
+font-size:90px;
+line-height:90px;
+margin-bottom:25px;
+font-weight:900;
+text-transform:uppercase;
+}
+
+.left h1 span{
+color:#ff4d2d;
+}
+
+.left p{
+font-size:22px;
+color:#ccc;
+line-height:36px;
+margin-bottom:35px;
+}
+
+.buttons{
+display:flex;
+gap:20px;
+}
+
+.btn{
+padding:18px 40px;
+font-size:20px;
+font-weight:bold;
+border:none;
+border-radius:10px;
+cursor:pointer;
+text-decoration:none;
+transition:0.3s;
 }
 
 .discord{
-margin-top:20px;
-font-size:22px;
+background:#5865F2;
+color:white;
+}
+
+.connect{
+background:#ff4d2d;
+color:white;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.server-box{
+background:rgba(0,0,0,0.65);
+padding:35px;
+border-radius:20px;
+width:420px;
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(8px);
+}
+
+.server-box h2{
+color:#ff4d2d;
+margin-bottom:25px;
+font-size:32px;
+}
+
+.server-box ul{
+list-style:none;
+}
+
+.server-box li{
+margin-bottom:22px;
+font-size:20px;
+color:#ddd;
+}
+
+.info-bar{
+margin:0 80px;
+background:rgba(0,0,0,0.75);
+padding:35px;
+border-radius:18px;
+display:flex;
+justify-content:space-around;
+align-items:center;
+flex-wrap:wrap;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.info-item{
+text-align:center;
+}
+
+.info-item h3{
+font-size:34px;
+color:#7dff4d;
+margin-bottom:10px;
+}
+
+.info-item p{
+font-size:18px;
 color:#ccc;
 }
+
+.features{
+padding:80px;
+}
+
+.features h2{
+text-align:center;
+font-size:52px;
+margin-bottom:50px;
+color:#ff4d2d;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(0,0,0,0.7);
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:15px;
+color:#ff4d2d;
+}
+
+.card p{
+color:#ccc;
+font-size:18px;
+line-height:30px;
+}
+
+footer{
+margin-top:60px;
+padding:40px;
+text-align:center;
+background:#050505;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+footer h2{
+font-size:40px;
+color:#ff4d2d;
+margin-bottom:15px;
+}
+
+footer p{
+color:#999;
+font-size:18px;
+}
+
+@media(max-width:1000px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding:50px 25px;
+}
+
+.left h1{
+font-size:60px;
+line-height:65px;
+}
+
+.server-box{
+width:100%;
+}
+
+header{
+padding:25px;
+flex-direction:column;
+gap:20px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.info-bar{
+margin:20px;
+gap:30px;
+}
+
+.features{
+padding:30px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="bg"></div>
+<div class="overlay"></div>
 
-<div class="center">
+<header>
 
-<h1>UZ RAST TEST X2</h1>
+<div class="logo">UZRAST</div>
 
-<p>Uzbekistan Rust Server</p>
+<nav>
+<a href="#">Bosh sahifa</a>
+<a href="#">Do'kon</a>
+<a href="#">Qoidalar</a>
+<a href="#">Server</a>
+<a href="#">Kontakt</a>
+</nav>
 
-<a class="btn" href="steam://connect/1.1.1.1:28015">
+</header>
+
+<section class="hero">
+
+<div class="left">
+
+<h1>Xush kelibsiz <span>UZRAST</span></h1>
+
+<p>
+Eng kuchli Uzbekistan Rust serveri.
+Kits, eventlar, TP, shop va professional pluginlar bilan haqiqiy survival atmosferasi.
+</p>
+
+<div class="buttons">
+
+<a class="btn discord" href="#">
+Discord
+</a>
+
+<a class="btn connect" href="#">
 CONNECT
 </a>
 
-<div class="info">
-X2 • KITS • EVENTS • TP
-</div>
-
-<div class="discord">
-uzrast.uz
 </div>
 
 </div>
+
+<div class="server-box">
+
+<h2>Server haqida</h2>
+
+<ul>
+<li>✔ X2 Loot</li>
+<li>✔ Kits System</li>
+<li>✔ Events</li>
+<li>✔ Teleport</li>
+<li>✔ Fast Craft</li>
+<li>✔ Active Admin</li>
+</ul>
+
+</div>
+
+</section>
+
+<div class="info-bar">
+
+<div class="info-item">
+<h3>ONLINE</h3>
+<p>Server ishlayapti</p>
+</div>
+
+<div class="info-item">
+<h3>play.uzrast.uz:28015</h3>
+<p>IP Address</p>
+</div>
+
+<div class="info-item">
+<h3>78 / 150</h3>
+<p>Players Online</p>
+</div>
+
+</div>
+
+<section class="features">
+
+<h2>Server imkoniyatlari</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Economy</h3>
+<p>Balanslangan iqtisod va shop tizimi.</p>
+</div>
+
+<div class="card">
+<h3>Loot</h3>
+<p>X2 loot va premium reward tizimi.</p>
+</div>
+
+<div class="card">
+<h3>PVP</h3>
+<p>Professional PVP va event sistemasi.</p>
+</div>
+
+<div class="card">
+<h3>Building</h3>
+<p>Fast build va qulay craft tizimi.</p>
+</div>
+
+<div class="card">
+<h3>Clans</h3>
+<p>Clan va team system mavjud.</p>
+</div>
+
+<div class="card">
+<h3>Top System</h3>
+<p>Rating va leaderboard tizimi.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>UZRAST</h2>
+
+<p>
+© 2026 UZRAST Rust Server. Barcha huquqlar himoyalangan.
+</p>
+
+</footer>
 
 </body>
 </html>
